@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("/static/imgs/05.jpg");
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  width: 90vw;
+  height: 95vh;
+  background-color: rgba(43, 46, 51, 0.913);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  color: #e9ecef;
+}
+
+.nav-details {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.icon-left-arrow {
+  fill: #e9ecef;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.heading-details {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background-color: #e9ecef;
+  color: #212529;
+  border-radius: 0.5rem;
+  padding: 1.2rem;
+  letter-spacing: 0.1rem;
+}
+
+.img-user {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.user-status {
+  font-weight: 400;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.details div {
+  gap: 1rem;
+}
+
+.btn-edit-profile {
+  background: none;
+  background-color: #5183fe;
+  color: #e9ecef;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border-style: none;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-edit-profile:hover {
+  background-color: #6f96fa;
+  color: #e9ecef;
+}
+
+.btn-logout-profile {
+  background: none;
+  background-color: #f03e3e;
+  color: #e9ecef;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border-style: none;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-logout-profile:hover {
+  background-color: #f05c5c;
+  color: #e9ecef;
+}

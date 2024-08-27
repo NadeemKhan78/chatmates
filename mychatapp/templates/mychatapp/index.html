@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playwrite+NZ:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <title>ChatMates</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- MENU -->
+    <div class="menus">
+
+      <a href="{% url 'mychat:index' %}">
+        <button class="btn btn-home">
+          <svg class="icon icon-home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+            <path
+              d="M 25 1.0507812 C 24.7825 1.0507812 24.565859 1.1197656 24.380859 1.2597656 L 1.3808594 19.210938 C 0.95085938 19.550938 0.8709375 20.179141 1.2109375 20.619141 C 1.5509375 21.049141 2.1791406 21.129062 2.6191406 20.789062 L 4 19.710938 L 4 46 C 4 46.55 4.45 47 5 47 L 19 47 L 19 29 L 31 29 L 31 47 L 45 47 C 45.55 47 46 46.55 46 46 L 46 19.710938 L 47.380859 20.789062 C 47.570859 20.929063 47.78 21 48 21 C 48.3 21 48.589063 20.869141 48.789062 20.619141 C 49.129063 20.179141 49.049141 19.550938 48.619141 19.210938 L 25.619141 1.2597656 C 25.434141 1.1197656 25.2175 1.0507812 25 1.0507812 z M 35 5 L 35 6.0507812 L 41 10.730469 L 41 5 L 35 5 z" />
+          </svg>
+        </button>
+      </a>
+
+      <a href="{% url 'mychat:add_friend' %}">
+
+        <button class="btn btn-addfrnd">
+          <svg class="icon icon-addfrnd" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            width="50px" height="50px">
+            <path
+              d="M411.1 466.2c77.1 0 139.6-61.2 139.6-136.7V284c0-75.5-62.5-136.7-139.6-136.7S271.5 208.5 271.5 284v45.5c0 75.5 62.5 136.7 139.6 136.7z m228.8 123.5C568.8 561.5 491.7 546 411.1 546c-80.5 0-157.4 15.5-228.4 43.6-41.5 19.1-70.7 62-70.7 112.4v56.2c0 37.1 23.8 68.3 56.2 78.5C246.3 855 327.6 865 411.1 865c83.4 0 164.6-10 242.6-28.4 32.6-10.1 56.5-41.2 56.5-78.6v-56.2c0-50.1-28.9-93-70.3-112.1z m170-223.2v-99.7H750v99.7h-99.7v59.8H750V526h59.8v-99.7h99.7v-59.8h-99.6z" />
+          </svg>
+        </button>
+      </a>
+
+      <a href="{% url 'mychat:friend_request_notification' %}">
+
+        <button class="btn btn-settings">
+          <!-- <svg class="icon icon-settings" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M 900.035 200.551 L 587.708 20.2292 a 151.81 151.81 0 0 0 -151.416 0 L 123.965 200.551 a 151.825 151.825 0 0 0 -75.7082 131.127 v 360.644 a 151.84 151.84 0 0 0 75.7082 131.127 l 312.327 180.322 a 151.78 151.78 0 0 0 151.416 0 l 312.327 -180.322 a 151.84 151.84 0 0 0 75.7082 -131.127 V 331.678 a 151.825 151.825 0 0 0 -75.7082 -131.127 Z M 512 673.47 a 169.98 169.98 0 1 1 169.98 -169.965 a 169.98 169.98 0 0 1 -169.98 169.965 Z" />
+          </svg> -->
+          <svg class="icon icon-settings icon-settings-empty" viewBox="0 0 24 24" id="_24x24_On_Light_Notification"
+            data-name="24x24/On Light/Notification" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+
+            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+            <g id="SVGRepo_iconCarrier">
+              <rect id="view-box" width="24" height="24" fill="none" />
+              <path id="Shape"
+                d="M6,17v-.5H2.25A2.253,2.253,0,0,1,0,14.25v-.382a2.542,2.542,0,0,1,1.415-2.289A1.248,1.248,0,0,0,2.1,10.572l.446-4.91a6.225,6.225,0,0,1,12.4,0l.446,4.91a1.26,1.26,0,0,0,.686,1.005,2.547,2.547,0,0,1,1.418,2.29v.382a2.252,2.252,0,0,1-2.25,2.25H11.5V17A2.75,2.75,0,0,1,6,17Zm1.5,0A1.25,1.25,0,0,0,10,17v-.5H7.5ZM4.045,5.8,3.6,10.708A2.738,2.738,0,0,1,2.089,12.92a1.055,1.055,0,0,0-.589.949v.382A.751.751,0,0,0,2.25,15h13A.751.751,0,0,0,16,14.25v-.382a1.054,1.054,0,0,0-.586-.948A2.739,2.739,0,0,1,13.9,10.708L13.456,5.8a4.725,4.725,0,0,0-9.411,0Z"
+                transform="translate(3.25 2.25)" fill="#ffffff" />
+            </g>
+          </svg>
+
+          <svg class="icon icon-settings icon-settings-dot hide" viewBox="0 0 24 24"
+            id="_24x24_On_Light_Notification-Alert" data-name="24x24/On Light/Notification-Alert"
+            xmlns="http://www.w3.org/2000/svg" fill="#000000">
+
+            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+            <g id="SVGRepo_iconCarrier">
+              <rect id="view-box" width="24" height="24" fill="none" />
+              <path id="Shape"
+                d="M6,17v-.5H2.25A2.253,2.253,0,0,1,0,14.25v-.382a2.542,2.542,0,0,1,1.415-2.289A1.247,1.247,0,0,0,2.1,10.572l.446-4.91A6.227,6.227,0,0,1,10.618.286a5.477,5.477,0,0,0-.635,1.374A4.794,4.794,0,0,0,8.75,1.5,4.7,4.7,0,0,0,4.045,5.8L3.6,10.708A2.739,2.739,0,0,1,2.089,12.92a1.055,1.055,0,0,0-.589.949v.382A.751.751,0,0,0,2.25,15h13A.751.751,0,0,0,16,14.25v-.382a1.053,1.053,0,0,0-.586-.948A2.739,2.739,0,0,1,13.9,10.708l-.2-2.18a5.473,5.473,0,0,0,1.526.221l.166,1.822a1.26,1.26,0,0,0,.686,1.005,2.547,2.547,0,0,1,1.418,2.29v.382a2.252,2.252,0,0,1-2.25,2.25H11.5V17A2.75,2.75,0,0,1,6,17Zm1.5,0A1.25,1.25,0,0,0,10,17v-.5H7.5ZM15.047,6.744A3.486,3.486,0,0,1,13.5,6.28L13.456,5.8a4.7,4.7,0,0,0-1.648-3.185,3.5,3.5,0,0,1,.61-1.417A6.221,6.221,0,0,1,14.95,5.662l.1,1.081v0Z"
+                transform="translate(3.25 2.25)" fill="#ffffff" />
+              <path id="Shape-2" data-name="Shape" d="M3.5,7A3.5,3.5,0,1,1,7,3.5,3.5,3.5,0,0,1,3.5,7Z"
+                transform="translate(15 2)" fill="#ff3224" />
+            </g>
+
+          </svg>
+        </button>
+      </a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- <div class="nav-main">
+        <svg class="icon icon-menu" width="50px" height="50px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+          fill="none" stroke="#ffffff">
+
+          <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
+            stroke-width="0.04" />
+
+          <g id="SVGRepo_iconCarrier">
+            <path fill="#ffffff" fill-rule="evenodd"
+              d="M18 5a1 1 0 100-2H2a1 1 0 000 2h16zm-4 4a1 1 0 100-2H6a1 1 0 100 2h8zm5 3a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-5 5a1 1 0 100-2H6a1 1 0 100 2h8z" />
+          </g>
+        </svg> -->
+
+      <div class="main-heading-box">
+        <h2 class="main-heading">ChatMates</h2>
+      </div>
+
+      <!-- </div> -->
+
+      <div class="frnds-list">
+
+        {% for friend in friends %}
+        <a class="frnd-link" href="{% url 'mychat:chatroom' friend.profile.id %}">
+          <div class="frnd-list">
+            {% if friend.profile.pic %}
+            <img class="frnd-img" src="{{friend.profile.pic.url}}" />
+            {% else %}
+            <img class="frnd-img" src="{% static 'imgs/default-profile.jpg' %}" />
+            {% endif %}
+            <div>
+              <h3 class="frnd-name">{{ friend.profile.name }}</h3>
+            </div>
+          </div>
+          <svg class="icon-msg-notification hide" fill="#228BE6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+            width="24px" height="24px">
+            <path
+              d="M 10.5 2 L 10.5 4.1953125 C 7.9131836 4.862095 6 7.2048001 6 10 L 6 15 L 18 15 L 18 10 C 18 7.2048001 16.086816 4.862095 13.5 4.1953125 L 13.5 2 L 10.5 2 z M 4 17 L 4 19 L 10.269531 19 A 2 2 0 0 0 10 20 A 2 2 0 0 0 12 22 A 2 2 0 0 0 14 20 A 2 2 0 0 0 13.728516 19 L 20 19 L 20 17 L 4 17 z" />
+          </svg>
+        </a>
+        {% endfor %}
+
+      </div>
+
+      <!-- MOBILE RESPONSIVE -->
+      <div class="mobile-menus">
+
+        <!-- <a href="{% url 'mychat:index' %}">
+          <button class="btn btn-home">
+            <svg class="icon icon-home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px"
+              height="50px">
+              <path
+                d="M 25 1.0507812 C 24.7825 1.0507812 24.565859 1.1197656 24.380859 1.2597656 L 1.3808594 19.210938 C 0.95085938 19.550938 0.8709375 20.179141 1.2109375 20.619141 C 1.5509375 21.049141 2.1791406 21.129062 2.6191406 20.789062 L 4 19.710938 L 4 46 C 4 46.55 4.45 47 5 47 L 19 47 L 19 29 L 31 29 L 31 47 L 45 47 C 45.55 47 46 46.55 46 46 L 46 19.710938 L 47.380859 20.789062 C 47.570859 20.929063 47.78 21 48 21 C 48.3 21 48.589063 20.869141 48.789062 20.619141 C 49.129063 20.179141 49.049141 19.550938 48.619141 19.210938 L 25.619141 1.2597656 C 25.434141 1.1197656 25.2175 1.0507812 25 1.0507812 z M 35 5 L 35 6.0507812 L 41 10.730469 L 41 5 L 35 5 z" />
+            </svg>
+          </button>
+        </a> -->
+
+        <a href="{% url 'mychat:add_friend' %}">
+
+          <button class="btn btn-addfrnd">
+            <svg class="icon icon-addfrnd" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              width="50px" height="50px">
+              <path
+                d="M411.1 466.2c77.1 0 139.6-61.2 139.6-136.7V284c0-75.5-62.5-136.7-139.6-136.7S271.5 208.5 271.5 284v45.5c0 75.5 62.5 136.7 139.6 136.7z m228.8 123.5C568.8 561.5 491.7 546 411.1 546c-80.5 0-157.4 15.5-228.4 43.6-41.5 19.1-70.7 62-70.7 112.4v56.2c0 37.1 23.8 68.3 56.2 78.5C246.3 855 327.6 865 411.1 865c83.4 0 164.6-10 242.6-28.4 32.6-10.1 56.5-41.2 56.5-78.6v-56.2c0-50.1-28.9-93-70.3-112.1z m170-223.2v-99.7H750v99.7h-99.7v59.8H750V526h59.8v-99.7h99.7v-59.8h-99.6z" />
+            </svg>
+          </button>
+        </a>
+
+        <a href="{% url 'mychat:friend_request_notification' %}">
+
+          <button class="btn btn-settings">
+            <!-- <svg class="icon icon-settings" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M 900.035 200.551 L 587.708 20.2292 a 151.81 151.81 0 0 0 -151.416 0 L 123.965 200.551 a 151.825 151.825 0 0 0 -75.7082 131.127 v 360.644 a 151.84 151.84 0 0 0 75.7082 131.127 l 312.327 180.322 a 151.78 151.78 0 0 0 151.416 0 l 312.327 -180.322 a 151.84 151.84 0 0 0 75.7082 -131.127 V 331.678 a 151.825 151.825 0 0 0 -75.7082 -131.127 Z M 512 673.47 a 169.98 169.98 0 1 1 169.98 -169.965 a 169.98 169.98 0 0 1 -169.98 169.965 Z" />
+            </svg> -->
+            <svg class="icon icon-settings icon-settings-empty-mbl" viewBox="0 0 24 24"
+              id="_24x24_On_Light_Notification" data-name="24x24/On Light/Notification"
+              xmlns="http://www.w3.org/2000/svg" fill="#000000">
+
+              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+              <g id="SVGRepo_iconCarrier">
+                <rect id="view-box" width="24" height="24" fill="none" />
+                <path id="Shape"
+                  d="M6,17v-.5H2.25A2.253,2.253,0,0,1,0,14.25v-.382a2.542,2.542,0,0,1,1.415-2.289A1.248,1.248,0,0,0,2.1,10.572l.446-4.91a6.225,6.225,0,0,1,12.4,0l.446,4.91a1.26,1.26,0,0,0,.686,1.005,2.547,2.547,0,0,1,1.418,2.29v.382a2.252,2.252,0,0,1-2.25,2.25H11.5V17A2.75,2.75,0,0,1,6,17Zm1.5,0A1.25,1.25,0,0,0,10,17v-.5H7.5ZM4.045,5.8,3.6,10.708A2.738,2.738,0,0,1,2.089,12.92a1.055,1.055,0,0,0-.589.949v.382A.751.751,0,0,0,2.25,15h13A.751.751,0,0,0,16,14.25v-.382a1.054,1.054,0,0,0-.586-.948A2.739,2.739,0,0,1,13.9,10.708L13.456,5.8a4.725,4.725,0,0,0-9.411,0Z"
+                  transform="translate(3.25 2.25)" fill="#ffffff" />
+              </g>
+            </svg>
+
+            <svg class="icon icon-settings icon-settings-dot-mbl hide" viewBox="0 0 24 24"
+              id="_24x24_On_Light_Notification-Alert" data-name="24x24/On Light/Notification-Alert"
+              xmlns="http://www.w3.org/2000/svg" fill="#000000">
+
+              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+              <g id="SVGRepo_iconCarrier">
+                <rect id="view-box" width="24" height="24" fill="none" />
+                <path id="Shape"
+                  d="M6,17v-.5H2.25A2.253,2.253,0,0,1,0,14.25v-.382a2.542,2.542,0,0,1,1.415-2.289A1.247,1.247,0,0,0,2.1,10.572l.446-4.91A6.227,6.227,0,0,1,10.618.286a5.477,5.477,0,0,0-.635,1.374A4.794,4.794,0,0,0,8.75,1.5,4.7,4.7,0,0,0,4.045,5.8L3.6,10.708A2.739,2.739,0,0,1,2.089,12.92a1.055,1.055,0,0,0-.589.949v.382A.751.751,0,0,0,2.25,15h13A.751.751,0,0,0,16,14.25v-.382a1.053,1.053,0,0,0-.586-.948A2.739,2.739,0,0,1,13.9,10.708l-.2-2.18a5.473,5.473,0,0,0,1.526.221l.166,1.822a1.26,1.26,0,0,0,.686,1.005,2.547,2.547,0,0,1,1.418,2.29v.382a2.252,2.252,0,0,1-2.25,2.25H11.5V17A2.75,2.75,0,0,1,6,17Zm1.5,0A1.25,1.25,0,0,0,10,17v-.5H7.5ZM15.047,6.744A3.486,3.486,0,0,1,13.5,6.28L13.456,5.8a4.7,4.7,0,0,0-1.648-3.185,3.5,3.5,0,0,1,.61-1.417A6.221,6.221,0,0,1,14.95,5.662l.1,1.081v0Z"
+                  transform="translate(3.25 2.25)" fill="#ffffff" />
+                <path id="Shape-2" data-name="Shape" d="M3.5,7A3.5,3.5,0,1,1,7,3.5,3.5,3.5,0,0,1,3.5,7Z"
+                  transform="translate(15 2)" fill="#ff3224" />
+              </g>
+
+            </svg>
+          </button>
+        </a>
+
+        <a href="{% url 'mychat:my_profile' %}">
+          {% if user.pic %}
+          <img class="profile-mbl-img" src="{{user.pic.url}}" />
+          {% else %}
+          <img class="profile-mbl-img" src="{% static 'imgs/default-profile.jpg' %}" />
+          {% endif %}
+        </a>
+
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="details">
+      <h2 class="heading-details">My Profile</h2>
+      {% if user.pic %}
+      <img class="img-user" src="{{user.pic.url}}" alt="user-profile" />
+      {% else %}
+      <img class="img-user" src="{% static 'imgs/default-profile.jpg' %}" alt="user-profile" />
+      {% endif %}
+      <h3 class="user-name">{{user.name}}</h3>
+      <div class="flex">
+        <a href="{% url 'mychat:update_profile' %}">
+          <button class="btn-edit-profile">Edit</button>
+        </a>
+        <a href="{% url 'mychat:logout' %}">
+          <button class="btn-logout-profile">Logout</button>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+
+    setInterval(getNotification, 1000)
+
+    function getNotification() {
+
+      let url = "{% url 'mychat:notification' %}"
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          let chatNotificationsBtn = document.getElementsByClassName("icon-msg-notification")
+
+          for (let i = 0; i < data.length; i++) {
+            if (data[i] > 0) {
+              chatNotificationsBtn[i].classList.remove("hide")
+            }
+          }
+        })
+        .catch(error => console.log(error))
+    }
+
+
+    setInterval(getRequestNotification, 1000)
+
+    function getRequestNotification() {
+
+      let url = "{% url 'mychat:request_notification' %}"
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          let requestNotificationBtn = document.querySelector(".icon-settings-empty")
+          let requestNotificationBtn2 = document.querySelector(".icon-settings-dot")
+          let requestNotificationBtnMbl = document.querySelector(".icon-settings-empty-mbl")
+          let requestNotificationBtn2Mbl = document.querySelector(".icon-settings-dot-mbl")
+
+          for (let i = 0; i < data.length; i++) {
+
+            if (data[i] > 0) {
+              requestNotificationBtn2.classList.remove("hide")
+              requestNotificationBtn.classList.add("hide")
+              requestNotificationBtn2Mbl.classList.remove("hide")
+              requestNotificationBtnMbl.classList.add("hide")
+            } else {
+              requestNotificationBtn2.classList.add("hide")
+              requestNotificationBtn.classList.remove("hide")
+              requestNotificationBtn2Mbl.classList.add("hide")
+              requestNotificationBtnMbl.classList.remove("hide")
+            }
+          }
+        })
+        .catch(error => console.log(error))
+
+    }
+
+    (function () {
+      window.onpageshow = function (event) {
+        if (event.persisted) {
+          window.location.reload();
+        }
+      };
+    })();
+  </script>
+</body>
+
+</html>

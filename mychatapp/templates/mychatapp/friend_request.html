@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'css/friend_request.css' %}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+NZ:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>ChatMates | Add Friend</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- MENU -->
+        <div class="menus">
+
+            <a href="{% url 'mychat:index' %}">
+                <button class="btn btn-home">
+                    <svg class="icon icon-home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px"
+                        height="50px">
+                        <path
+                            d="M 25 1.0507812 C 24.7825 1.0507812 24.565859 1.1197656 24.380859 1.2597656 L 1.3808594 19.210938 C 0.95085938 19.550938 0.8709375 20.179141 1.2109375 20.619141 C 1.5509375 21.049141 2.1791406 21.129062 2.6191406 20.789062 L 4 19.710938 L 4 46 C 4 46.55 4.45 47 5 47 L 19 47 L 19 29 L 31 29 L 31 47 L 45 47 C 45.55 47 46 46.55 46 46 L 46 19.710938 L 47.380859 20.789062 C 47.570859 20.929063 47.78 21 48 21 C 48.3 21 48.589063 20.869141 48.789062 20.619141 C 49.129063 20.179141 49.049141 19.550938 48.619141 19.210938 L 25.619141 1.2597656 C 25.434141 1.1197656 25.2175 1.0507812 25 1.0507812 z M 35 5 L 35 6.0507812 L 41 10.730469 L 41 5 L 35 5 z" />
+                    </svg>
+                </button>
+            </a>
+
+            <a href="{% url 'mychat:add_friend' %}">
+                <button class="btn btn-addfrnd">
+                    <svg class="icon icon-addfrnd" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" width="50px" height="50px">
+                        <path
+                            d="M411.1 466.2c77.1 0 139.6-61.2 139.6-136.7V284c0-75.5-62.5-136.7-139.6-136.7S271.5 208.5 271.5 284v45.5c0 75.5 62.5 136.7 139.6 136.7z m228.8 123.5C568.8 561.5 491.7 546 411.1 546c-80.5 0-157.4 15.5-228.4 43.6-41.5 19.1-70.7 62-70.7 112.4v56.2c0 37.1 23.8 68.3 56.2 78.5C246.3 855 327.6 865 411.1 865c83.4 0 164.6-10 242.6-28.4 32.6-10.1 56.5-41.2 56.5-78.6v-56.2c0-50.1-28.9-93-70.3-112.1z m170-223.2v-99.7H750v99.7h-99.7v59.8H750V526h59.8v-99.7h99.7v-59.8h-99.6z" />
+                    </svg>
+                </button>
+            </a>
+
+        </div>
+
+        <!-- MAIN -->
+        <div class="main">
+            <div class="nav-main">
+                <a class="left-arrow-link" href="{% url 'mychat:index' %}">
+                    <svg class="icon icon-left-arrow" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400.004 400.004" xml:space="preserve">
+                        <g>
+                            <path d="M382.688,182.686H59.116l77.209-77.214c6.764-6.76,6.764-17.726,0-24.485c-6.764-6.764-17.73-6.764-24.484,0L5.073,187.757
+                        c-6.764,6.76-6.764,17.727,0,24.485l106.768,106.775c3.381,3.383,7.812,5.072,12.242,5.072c4.43,0,8.861-1.689,12.242-5.072
+                        c6.764-6.76,6.764-17.726,0-24.484l-77.209-77.218h323.572c9.562,0,17.316-7.753,17.316-17.315
+                        C400.004,190.438,392.251,182.686,382.688,182.686z" />
+                        </g>
+                    </svg>
+                </a>
+                <div class="main-heading-box">
+                    <h2 class="main-heading"><span class="mh">ChatMates | </span><span class="sub-heading">Friend
+                            request</span></h2>
+                </div>
+            </div>
+
+            <div class="frnds-list">
+
+                {% for f_request in f_requests %}
+                <div class="frnd-list">
+                    <div class="flex">
+                        {% if f_request.sender.profile.pic %}
+                        <img class="frnd-img" src="{{f_request.sender.profile.pic.url}}" />
+                        {% else %}
+                        <img class="frnd-img" src="{% static 'imgs/default-profile.jpg' %}" />
+                        {% endif %}
+                        <div>
+                            <h3 class="frnd-name">{{ f_request.sender.profile.name }}</h3>
+                        </div>
+                    </div>
+
+                    <div class="btns-box flex">
+                        <div class="btn-confirm" data-id="{{f_request.sender.id}}">Confirm</div>
+                    </div>
+
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <!-- DETAILS -->
+        <div class="details">
+            <h2 class="heading-details">My Profile</h2>
+            {% if user.profile.pic %}
+            <img class="img-user" src="{{user.profile.pic.url}}" alt="user-profile" />
+            {% else %}
+            <img class="img-user" src="{% static 'imgs/default-profile.jpg' %}" alt="user-profile" />
+            {% endif %}
+            <h3 class="user-name">{{user.profile.name}}</h3>
+            <h4 class="user-status">How're you doing?, I'm great🎉</h4>
+            <a href="{% url 'mychat:update_profile' %}">
+                <button class="btn-edit-profile">Edit Profile</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== "") {
+                const cookies = document.cookie.split(";");
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === name + "=") {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie("csrftoken");
+
+
+        let confirm_btns = document.querySelectorAll(".btn-confirm")
+
+        for (let btn of confirm_btns) {
+            btn.addEventListener("click", addFriend)
+        }
+
+
+
+        async function postJSON(data, btn) {
+            let url = "{% url 'mychat:accept_friend_request' %}";
+            try {
+                const response = await fetch(url, {
+                    method: "POST", // or 'PUT'
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": csrftoken,
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+                console.log("Success:", result);
+
+                if (result == "Yes") {
+                    btn.innerText = "Confirmed"
+                    btn.classList.add("disable")
+                    btn.nextElementSibling.classList.add("disable")
+                }
+
+
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
+
+
+        function addFriend(e) {
+            console.log(e.target)
+            let data = e.target.dataset.id
+            let btn = e.target
+            postJSON(data, btn)
+        }
+
+    </script>
+
+</body>
+
+</html>

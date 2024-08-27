@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My profile</title>
+    <link href="{% static 'css/my_profile.css' %}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+NZ:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="details">
+            <div class="nav-details">
+                <a href="{% url 'mychat:index' %}">
+                    <svg class="icon icon-left-arrow" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400.004 400.004" xml:space="preserve">
+                        <g>
+                            <path d="M382.688,182.686H59.116l77.209-77.214c6.764-6.76,6.764-17.726,0-24.485c-6.764-6.764-17.73-6.764-24.484,0L5.073,187.757
+                        c-6.764,6.76-6.764,17.727,0,24.485l106.768,106.775c3.381,3.383,7.812,5.072,12.242,5.072c4.43,0,8.861-1.689,12.242-5.072
+                        c6.764-6.76,6.764-17.726,0-24.484l-77.209-77.218h323.572c9.562,0,17.316-7.753,17.316-17.315
+                        C400.004,190.438,392.251,182.686,382.688,182.686z" />
+                        </g>
+                    </svg>
+                </a>
+                <h2 class="heading-details">My Profile</h2>
+            </div>
+            {% if user.pic %}
+            <img class="img-user" src="{{user.pic.url}}" alt="user-profile" />
+            {% else %}
+            <img class="img-user" src="{% static 'imgs/default-profile.jpg' %}" alt="user-profile" />
+            {% endif %}
+            <h3 class="user-name">{{user.name}}</h3>
+            <h4 class="user-status">How're you doing?, I'm great🎉</h4>
+            <div class="flex">
+                <a href="{% url 'mychat:update_profile' %}">
+                    <button class="btn-edit-profile">Edit</button>
+                </a>
+                <a href="{% url 'mychat:logout' %}">
+                    <button class="btn-logout-profile">Logout</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
