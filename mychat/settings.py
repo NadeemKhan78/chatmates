@@ -75,24 +75,24 @@ WSGI_APPLICATION = 'mychat.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2-binary',
-#         'NAME': 'chatmatedb',
-#         'USER': 'postgres',
-#         'PASSWORD': 'nknadeem1978',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'defaultdb',
+        'USER': 'avnadmin',
+        'PASSWORD': 'AVNS_2ppbvpUJUs9X5-VaPUx',
+        'HOST': 'pg-16f44a11-chatmates1978.h.aivencloud.com',
+        'PORT': '22117',
+    }
+}
 
 
 # Password validation
