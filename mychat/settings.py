@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'mychat.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql-psycopg2',
         'NAME': 'defaultdb',
         'USER': 'avnadmin',
         'PASSWORD': 'AVNS_2ppbvpUJUs9X5-VaPUx',
