@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import dj_database_url
 from pathlib import Path
 import os
 
@@ -75,24 +76,26 @@ WSGI_APPLICATION = 'mychat.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'defaultdb',
-        'USER': 'avnadmin',
-        'PASSWORD': 'AVNS_2ppbvpUJUs9X5-VaPUx',
-        'HOST': 'pg-16f44a11-chatmates1978.h.aivencloud.com',
-        'PORT': '22117',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+DATABASES['default'] = dj_database_url.parse("postgresql://chatmates_render_user:vlKrHPlGHJ6ykf0Q9QqUAA5YxCsCWdmY@dpg-cr8v5btsvqrc739h0bh0-a.oregon-postgres.render.com/chatmates_render")
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'defaultdb',
+#         'USER': 'avnadmin',
+#         'PASSWORD': 'AVNS_2ppbvpUJUs9X5-VaPUx',
+#         'HOST': 'pg-16f44a11-chatmates1978.h.aivencloud.com',
+#         'PORT': '22117',
+#     }
+# }
 
 
 # Password validation
