@@ -22,12 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "ibw)=bp7&y@^g@*^zqu!(ugmwam7x6v0-aqsu*-_z(--d)5xb9"
+# SECRET_KEY = "ibw)=bp7&y@^g@*^zqu!(ugmwam7x6v0-aqsu*-_z(--d)5xb9"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = ['.vercel.app']
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -83,7 +86,10 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse("postgresql://chatmates_render_user:vlKrHPlGHJ6ykf0Q9QqUAA5YxCsCWdmY@dpg-cr8v5btsvqrc739h0bh0-a.oregon-postgres.render.com/chatmates_render")
+
+database_url = os.environ.get("DATABASE_URL")
+DATABASES['default'] = dj_database_url.parse(database_url)
+# DATABASES['default'] = dj_database_url.parse("postgresql://chatmates_render_user:vlKrHPlGHJ6ykf0Q9QqUAA5YxCsCWdmY@dpg-cr8v5btsvqrc739h0bh0-a.oregon-postgres.render.com/chatmates_render")
 
 
 # DATABASES = {
